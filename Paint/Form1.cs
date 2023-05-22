@@ -1,3 +1,5 @@
+using System.Drawing.Imaging;
+
 namespace Paint
 {
     public partial class Form1 : Form
@@ -147,6 +149,17 @@ namespace Paint
             index = 7;
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Image(*.jpg)|*.jpg|(*.*|*.*";
+            if(saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, picColor.Width, picColor.Height), bm.PixelFormat);
+                btm.Save(saveDialog.FileName, ImageFormat.Jpeg);
+            }
+        }
+
         private void btnLinija_Click(object sender, EventArgs e)
         {
             index = 5;
@@ -155,21 +168,21 @@ namespace Paint
         {
             cd.ShowDialog();
             newColor = cd.Color;
-            pictureBox1.BackColor = cd.Color;
+            OdabirBoje.BackColor = cd.Color;
             pen.Color = cd.Color;
         }
         static Point setPoint(PictureBox pb, Point pt)
         {
-            float pX = 1f * pb.Width / pb.Height;
-            float pY = 1f * pb.Height / pb.Width;
+            float pX = 1f * pb.Width / pb.Width;
+            float pY = 1f * pb.Height / pb.Height;
 
             return new Point((int)(pt.X * pX), (int)(pt.Y * pY));
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            Point pt = setPoint(pictureBox1, e.Location);
-            btnIzaberiBoju.BackColor = ((Bitmap)pictureBox1.Image).GetPixel(pt.X, pt.Y);
-            newColor = btnIzaberiBoju.BackColor;
+            Point point = setPoint(OdabirBoje, e.Location);
+            izabranaBoja.BackColor = ((Bitmap)OdabirBoje.Image).GetPixel(point.X, point.Y);
+            newColor = izabranaBoja.BackColor;
             pen.Color = newColor;
         }
         private void validate(Bitmap bm, Stack<Point>sp, int x, int y, Color old_color, Color new_color)
