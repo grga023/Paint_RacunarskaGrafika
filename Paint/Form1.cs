@@ -26,9 +26,34 @@ namespace Paint
         Pen pen = new Pen(Color.Black, 1);
         Pen gumica = new Pen(Color.White, 4);
         int x, y, sX, sY, cX, cY;
-
         ColorDialog cd = new ColorDialog();
         Color newColor;
+
+        private void btnOlovka_Click(object sender, EventArgs e)
+        {
+            index = 1;
+        }
+        private void btnGumica_Click(object sender, EventArgs e)
+        {
+            index = 2;
+        }
+
+        private void btnElipsa_Click(object sender, EventArgs e)
+        {
+            index = 3;
+        }
+        private void btnKvadrat_Click(object sender, EventArgs e)
+        {
+            index = 4;
+        }
+        private void btnLinija_Click(object sender, EventArgs e)
+        {
+            index = 5;
+        }       
+        private void btnPopuni_Click(object sender, EventArgs e)
+        {
+            index = 7;
+        }
         private void picColor_MouseDown(object sender, MouseEventArgs e)
         {
             paint = true;
@@ -36,15 +61,12 @@ namespace Paint
 
             cX = e.X;
             cY = e.Y;
-
         }
-
-
         private void picColor_MouseMove(object sender, MouseEventArgs e)
         {
             if (paint)
             {
-                if(index == 1)
+                if (index == 1)
                 {
                     px = e.Location;
                     g.DrawLine(pen, px, py);
@@ -65,7 +87,6 @@ namespace Paint
                 sY = y - cY;
             }
         }
-
         private void picColor_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -86,15 +107,12 @@ namespace Paint
                 }
             }
         }
-
         private void btnOcisti_Click(object sender, EventArgs e)
         {
             g.Clear(Color.White);
             picColor.Image = bm;
             index = 0;
         }
-
-
         private void picColor_MouseUp(object sender, MouseEventArgs e)
         {
             paint = false;
@@ -116,25 +134,6 @@ namespace Paint
             }
             picColor.Refresh();
         }
-
-        private void btnOlovka_Click(object sender, EventArgs e)
-        {
-            index = 1;
-        }
-        private void btnGumica_Click(object sender, EventArgs e)
-        {
-            index = 2;
-        }
-
-        private void btnElipsa_Click(object sender, EventArgs e)
-        {
-            index = 3;
-        }
-        private void btnKvadrat_Click(object sender, EventArgs e)
-        {
-            index = 4;
-        }
-
         private void picColor_MouseClick(object sender, MouseEventArgs e)
         {
             if(index == 7)
@@ -143,12 +142,6 @@ namespace Paint
                 FillFigure(bm, point.X, point.Y, newColor);
             }
         }
-
-        private void btnPopuni_Click(object sender, EventArgs e)
-        {
-            index = 7;
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             var saveDialog = new SaveFileDialog();
@@ -159,11 +152,6 @@ namespace Paint
                 btm.Save(saveDialog.FileName, ImageFormat.Jpeg);
             }
         }
-
-        private void btnLinija_Click(object sender, EventArgs e)
-        {
-            index = 5;
-        }       
         private void btnBoja_Click(object sender, EventArgs e)
         {
             cd.ShowDialog();
