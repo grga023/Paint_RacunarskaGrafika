@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnOcisti = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLinija = new System.Windows.Forms.Button();
             this.btnKvadrat = new System.Windows.Forms.Button();
@@ -41,24 +44,66 @@
             this.btnIzaberiBoju = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picColor = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnOcisti);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnIzaberiBoju);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(977, 98);
+            this.panel1.Size = new System.Drawing.Size(1121, 98);
             this.panel1.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSave.Location = new System.Drawing.Point(982, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(127, 33);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Sacuvaj";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnOcisti
+            // 
+            this.btnOcisti.BackColor = System.Drawing.Color.Transparent;
+            this.btnOcisti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnOcisti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOcisti.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOcisti.Location = new System.Drawing.Point(982, 55);
+            this.btnOcisti.Name = "btnOcisti";
+            this.btnOcisti.Size = new System.Drawing.Size(127, 31);
+            this.btnOcisti.TabIndex = 8;
+            this.btnOcisti.Text = "Ocisti";
+            this.btnOcisti.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOcisti.UseVisualStyleBackColor = false;
+            this.btnOcisti.Click += new System.EventHandler(this.btnOcisti_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Paint.Properties.Resources.color_palette;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(337, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
             // panel3
             // 
@@ -89,6 +134,7 @@
             this.btnLinija.Text = "Linija";
             this.btnLinija.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLinija.UseVisualStyleBackColor = false;
+            this.btnLinija.Click += new System.EventHandler(this.btnLinija_Click);
             // 
             // btnKvadrat
             // 
@@ -104,6 +150,7 @@
             this.btnKvadrat.Text = "Kvadrat";
             this.btnKvadrat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnKvadrat.UseVisualStyleBackColor = false;
+            this.btnKvadrat.Click += new System.EventHandler(this.btnKvadrat_Click);
             // 
             // btnElipsa
             // 
@@ -119,6 +166,7 @@
             this.btnElipsa.Text = "Elipsa";
             this.btnElipsa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnElipsa.UseVisualStyleBackColor = false;
+            this.btnElipsa.Click += new System.EventHandler(this.btnElipsa_Click);
             // 
             // btnGumica
             // 
@@ -134,6 +182,7 @@
             this.btnGumica.Text = "Gumica";
             this.btnGumica.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGumica.UseVisualStyleBackColor = false;
+            this.btnGumica.Click += new System.EventHandler(this.btnGumica_Click);
             // 
             // btnOlovka
             // 
@@ -149,6 +198,7 @@
             this.btnOlovka.Text = "Olovka";
             this.btnOlovka.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOlovka.UseVisualStyleBackColor = false;
+            this.btnOlovka.Click += new System.EventHandler(this.btnOlovka_Click);
             // 
             // btnPopuni
             // 
@@ -164,6 +214,7 @@
             this.btnPopuni.Text = "Popuni";
             this.btnPopuni.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPopuni.UseVisualStyleBackColor = false;
+            this.btnPopuni.Click += new System.EventHandler(this.btnPopuni_Click);
             // 
             // btnBoja
             // 
@@ -178,6 +229,7 @@
             this.btnBoja.Text = "Boja";
             this.btnBoja.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBoja.UseVisualStyleBackColor = false;
+            this.btnBoja.Click += new System.EventHandler(this.btnBoja_Click);
             // 
             // btnIzaberiBoju
             // 
@@ -191,9 +243,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGreen;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 482);
+            this.panel2.Location = new System.Drawing.Point(0, 821);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(977, 29);
+            this.panel2.Size = new System.Drawing.Size(1121, 29);
             this.panel2.TabIndex = 1;
             // 
             // picColor
@@ -202,25 +254,20 @@
             this.picColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picColor.Location = new System.Drawing.Point(0, 98);
             this.picColor.Name = "picColor";
-            this.picColor.Size = new System.Drawing.Size(977, 384);
+            this.picColor.Size = new System.Drawing.Size(1121, 723);
             this.picColor.TabIndex = 2;
             this.picColor.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Paint.Properties.Resources.color_palette;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(337, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.picColor.Paint += new System.Windows.Forms.PaintEventHandler(this.picColor_Paint);
+            this.picColor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picColor_MouseClick);
+            this.picColor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picColor_MouseDown);
+            this.picColor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picColor_MouseMove);
+            this.picColor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picColor_MouseUp);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 511);
+            this.ClientSize = new System.Drawing.Size(1121, 850);
             this.Controls.Add(this.picColor);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -229,9 +276,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +298,7 @@
         private Panel panel3;
         private Button btnIzaberiBoju;
         private PictureBox pictureBox1;
+        private Button btnSave;
+        private Button btnOcisti;
     }
 }
