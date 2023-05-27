@@ -187,13 +187,13 @@ namespace Paint
             Color old_colr = bm.GetPixel(x, y);
             Stack<Point> pixel = new Stack<Point>();
             pixel.Push(new Point(x, y));
-            bm.SetPixel(x, y, new_color);
+            bm.SetPixel(x, y, new_color);   
             if (old_colr == new_color) return;
 
             while(pixel.Count > 0)
             {
                 Point p = (Point)pixel.Pop();
-                if(p.X >= p.Y && p.X < bm.Width && p.Y < bm.Height)
+                if(p.X <= p.Y || p.X >= p.Y && p.X < bm.Width && p.Y < bm.Height)
                 {
                     validate(bm, pixel, p.X - 1, p.Y, old_colr, new_color);
                     validate(bm, pixel, p.X, p.Y - 1, old_colr, new_color);
